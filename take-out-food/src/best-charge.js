@@ -7,7 +7,7 @@ function bestCharge(selectedItems) {
 
    //获取商品的基本信息
   var getItems = loadAllItems();
-
+  var getItem = loadAllItems();
   //获取优惠商品
   var getCount = loadPromotions();
 
@@ -18,7 +18,7 @@ function bestCharge(selectedItems) {
   var count2 = countItBySecond(allItems,getItems,getCount);
 
   var str;
-  str = compareIt(count1, count2, allItems, getItems);
+  str = compareIt(count1, count2, allItems, getItem);
   return str;
 }
 
@@ -80,16 +80,7 @@ function countItBySecond(allItems,getItems,getCount) {
         }
       }
     }
-  for(var k = 0; k < getItems.length; k++)
-  {
-    for(var m = 0; m < getCount[1].items.length; m++)
-    {
-      if(getItems[k].id === getCount[1].items[m])
-      {
-        getItems[k].price *= 2;
-      }
-    }
-  }
+
     return sum;
 }
 
